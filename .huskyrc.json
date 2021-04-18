@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "tsc && lint-staged && yarn dictionary && git add ./dictionary",
+    "post-commit": "git update-index --again"
+  }
+}

@@ -1,0 +1,6 @@
+plugins:
+  - custom-logo-plugin
+  - behaviors-plugin
+  - screen-diff-plugin
+  - jira-plugin
+  - xray-plugin

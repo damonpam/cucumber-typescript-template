@@ -1,0 +1,24 @@
+# Logs
+logs
+*.log
+
+#intelliJ
+*.iml
+
+# Temporary directory
+tmp
+
+# Reports
+report
+
+# NodeJS
+node_modules/
+.npm
+package-lock.json
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# built files
+build

@@ -1,0 +1,62 @@
+{
+  "name": "cucumber-typescript-template",
+  "version": "1.0.0",
+  "description": "[Cucumber-js](https://github.com/cucumber/cucumber-js) using Typescript. Features #are defined with [Gherkin](https://cucumber.io/docs/gherkin/reference/).",
+  "author": "Daniel Montesinos <damonpam@gmail.com>",
+  "private": true,
+  "license": "ISC",
+  "config": {
+    "cucumber": "--require-module=ts-node/register --require-module=tsconfig-paths/register --require=tests/**/*.ts --format=tests/support/allure-reporter.ts:report/dummy.txt"
+  },
+  "scripts": {
+    "pretest": "rimraf report && mkdir report",
+    "dictionary": "rimraf dictionary && bdd-dictionary-generator -p ./tests/step-definitions -f markdown",
+    "lint": "eslint '**/*.{ts,js}' --fix --max-warnings 0",
+    "test": "cucumber-js features/**/*.feature $npm_package_config_cucumber",
+    "steps-usage": "yarn dry-run --format usage:report/usage.txt --format usage | grep 'UNUSED' || echo 'Good!'",
+    "dry-run": "cucumber-js features/**/*.feature $npm_package_config_cucumber --dry-run",
+    "report": "allure generate report/allure-results -o report/allure-report && allure open report/allure-report"
+  },
+  "dependencies": {
+    "@hqoss/guards": "^0.0.3",
+    "@types/allure-js-commons": "0.0.1",
+    "@types/chai": "^4.2.15",
+    "@types/config": "^0.0.38",
+    "@types/cucumber": "^6.0.0",
+    "@types/faker": "^5.1.7",
+    "@types/node": "^14.14.35",
+    "allure-commandline": "^2.13.8",
+    "allure-cucumberjs": "^2.0.0-beta.9",
+    "chai": "^4.3.4",
+    "config": "^3.3.6",
+    "cucumber": "^6.0.5",
+    "dotenv": "^8.2.0",
+    "failsafe": "^1.0.0",
+    "faker": "^5.4.0",
+    "moment": "^2.29.1",
+    "rimraf": "^3.0.0",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.2.3",
+    "wait-for-expect": "^3.0.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@e2y/bdd-dictionary-generator": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-chai-expect": "^2.1.0",
+    "eslint-plugin-cucumber": "^1.4.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unicorn": "^29.0.0",
+    "gherkin-lint": "^4.2.1",
+    "husky": "^4.0.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.0"
+  }
+}
